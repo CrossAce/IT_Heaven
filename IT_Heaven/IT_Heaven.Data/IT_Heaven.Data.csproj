@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{325DC5FA-8253-4B5F-8084-1EDA74934525}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IT_Heaven.Data</RootNamespace>
+    <AssemblyName>IT_Heaven.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IdentityModels.cs" />
+    <Compile Include="IT_HeavenADO.cs" />
+    <Compile Include="Migrations\201705020907343_FavoritesDataModel.cs" />
+    <Compile Include="Migrations\201705020907343_FavoritesDataModel.Designer.cs">
+      <DependentUpon>201705020907343_FavoritesDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705022144526_ArticleDataModel.cs" />
+    <Compile Include="Migrations\201705022144526_ArticleDataModel.Designer.cs">
+      <DependentUpon>201705022144526_ArticleDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705022145295_CardDataModel.cs" />
+    <Compile Include="Migrations\201705022145295_CardDataModel.Designer.cs">
+      <DependentUpon>201705022145295_CardDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041244396_FavoritesDataModel1.cs" />
+    <Compile Include="Migrations\201705041244396_FavoritesDataModel1.Designer.cs">
+      <DependentUpon>201705041244396_FavoritesDataModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041247172_FavoritesDataModel2.cs" />
+    <Compile Include="Migrations\201705041247172_FavoritesDataModel2.Designer.cs">
+      <DependentUpon>201705041247172_FavoritesDataModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041640452_CartDataModel.cs" />
+    <Compile Include="Migrations\201705041640452_CartDataModel.Designer.cs">
+      <DependentUpon>201705041640452_CartDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041706279_ArticleDataModel1.cs" />
+    <Compile Include="Migrations\201705041706279_ArticleDataModel1.Designer.cs">
+      <DependentUpon>201705041706279_ArticleDataModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041709083_CartDataModel1.cs" />
+    <Compile Include="Migrations\201705041709083_CartDataModel1.Designer.cs">
+      <DependentUpon>201705041709083_CartDataModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705042026290_ShoppingNode.cs" />
+    <Compile Include="Migrations\201705042026290_ShoppingNode.Designer.cs">
+      <DependentUpon>201705042026290_ShoppingNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050221005_FavoritesDataModel3.cs" />
+    <Compile Include="Migrations\201705050221005_FavoritesDataModel3.Designer.cs">
+      <DependentUpon>201705050221005_FavoritesDataModel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051356570_CardDataModel1.cs" />
+    <Compile Include="Migrations\201705051356570_CardDataModel1.Designer.cs">
+      <DependentUpon>201705051356570_CardDataModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SpecialUserService.cs" />
+    <Compile Include="Services\Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IT_Heaven.Models\IT_Heaven.Models.csproj">
+      <Project>{bf651829-75f0-44b8-a68c-ee6d74e0c9ae}</Project>
+      <Name>IT_Heaven.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705020907343_FavoritesDataModel.resx">
+      <DependentUpon>201705020907343_FavoritesDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705022144526_ArticleDataModel.resx">
+      <DependentUpon>201705022144526_ArticleDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705022145295_CardDataModel.resx">
+      <DependentUpon>201705022145295_CardDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041244396_FavoritesDataModel1.resx">
+      <DependentUpon>201705041244396_FavoritesDataModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041247172_FavoritesDataModel2.resx">
+      <DependentUpon>201705041247172_FavoritesDataModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041640452_CartDataModel.resx">
+      <DependentUpon>201705041640452_CartDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041706279_ArticleDataModel1.resx">
+      <DependentUpon>201705041706279_ArticleDataModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041709083_CartDataModel1.resx">
+      <DependentUpon>201705041709083_CartDataModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705042026290_ShoppingNode.resx">
+      <DependentUpon>201705042026290_ShoppingNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050221005_FavoritesDataModel3.resx">
+      <DependentUpon>201705050221005_FavoritesDataModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051356570_CardDataModel1.resx">
+      <DependentUpon>201705051356570_CardDataModel1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

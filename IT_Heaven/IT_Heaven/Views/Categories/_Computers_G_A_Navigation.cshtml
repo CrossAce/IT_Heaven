@@ -1,0 +1,12 @@
+﻿@using IT_Heaven.Models.CategoriesSemiModels;
+
+<div class="col-md-2 col-sm-3" id="pills-modify">
+    <ul class="nav nav-stacked pills">
+        <li class="categories">Subcategories</li>
+        <li role="presentation">@Html.ActionLink("Computers","SingleCategory","Categories",new { categoryId = (int)CategoriesInformation.CategoriesEnum.Computers},null)</li>
+        <li role="presentation">@Html.ActionLink("Laptops", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Laptops },null)</li>
+        <li role="presentation">@Html.ActionLink("Consoles", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Consoles },null)</li>
+        <li role="presentation">@Html.ActionLink("PC Components", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.PC_Components },null)</li>
+        <li role="presentation">@Html.ActionLink("Peripherals", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Peripherals },null)</li>
+    </ul>
+</div>

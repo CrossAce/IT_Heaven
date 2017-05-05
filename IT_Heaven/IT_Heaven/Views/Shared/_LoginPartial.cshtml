@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink(User.Identity.GetUserName(), "Account", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        <a href="/ShoppingCart/Cart" id="navbar-stylized">
+            <span id="cart"><img src="~/Resources/Cart.png" width="30" height="30" alt="" /></span>
+            <span id="cartText">Shopping Cart</span>
+        </a>
+    </li>
+    
+
+</ul>
+    }
+}
+else
+{
+<ul class="nav navbar-nav navbar-right">
+    @switch ((string)ViewBag.Active)
+    {
+    case "register":
+    {
+    <li id="active-override">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+    break;
+    case "login":
+    {
+    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li id="active-override">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+    break;
+    default:
+    {
+    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+    break;
+    }
+
+</ul>
+}

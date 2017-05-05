@@ -1,0 +1,42 @@
+﻿@using IT_Heaven.Models.Models.ViewModels
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="container body-content">
+    <div class="row">
+        @switch ((string)ViewBag.AccountType)
+        {
+            case "User": { Html.RenderPartial("~/Views/Manage/_AccountPartial"); } break;
+            case "Helper": { Html.RenderPartial("~/Views/Manage/_HelperAccountPartial"); } break;
+            case "Admin": { Html.RenderPartial("~/Views/Manage/_AdminAccountPartial.cshtml"); } break;
+        }
+
+        <div class="col-md-8 col-sm-9 col-md-offset-2 col-sm-offset-3 col-lg-offset-3">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>E-mail</th>
+                    <th>Role Change / Delete user</th>
+                </tr>
+                @foreach (var user in Model)
+                {
+                    if (user.Name != "admin@admin.com")
+                    {
+                        <tr id="@user.Id">
+                            <th>@user.Id</th>
+                            <th>@user.Name</th>
+                            <th>
+                                <a class="btn btn-green" id="@user.Name" onclick="ChangeRole('@user.Id','@user.Name')">@user.Role</a>
+                                <a class="btn btn-green" onclick="DeleteUser('@user.Id')">Delete user</a>
+                            </th>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

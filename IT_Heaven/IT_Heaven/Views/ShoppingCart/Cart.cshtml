@@ -1,0 +1,33 @@
+﻿@using IT_Heaven.Models.Models.ViewModels
+@using IT_Heaven.Resources.Helpers;
+@model  IEnumerable<ShoppingNodeViewModel>
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="container body-content">
+    <br/>
+   <h2>Your shopping cart!</h2>
+
+    <table class="table">
+        
+        @foreach (var node in Model)
+        {
+            <tr id="@node.Id">
+                <td>
+                    <img src="@node.Image64" alt="" />
+                </td>
+                <td>
+                    <p id="paragraph">@node.Name</p>
+                    <br />
+                    <p id="paragraph"><strong>@StaticResources.CalculateDiscount(node.Discount, node.Price)</strong></p>
+                </td>
+                <td>
+                    <button class="btn btn-green">Buy</button>
+                    <button class="btn btn-green" onclick="RemoveFromCart(@node.Id)">Remove</button>
+                </td>
+            </tr>
+        }
+    </table>
+    
+</div>

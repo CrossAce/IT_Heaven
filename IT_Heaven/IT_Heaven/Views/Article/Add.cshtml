@@ -1,0 +1,100 @@
+﻿@using IT_Heaven.Models.Models.BindingModels;
+@model AddArticleBindingModel
+
+<div class="container-fluid body-content">
+    <div class="row">
+        @switch ((string)ViewBag.AccountType)
+        {
+            case "User": { Html.RenderPartial("~/Views/Manage/_AccountPartial"); } break;
+            case "Helper": { Html.RenderPartial("~/Views/Manage/_HelperAccountPartial.cshtml"); } break;
+            case "Admin": { Html.RenderPartial("~/Views/Manage/_AdminAccountPartial.cshtml"); } break;
+        }
+
+        <div class="col-md-6 col-sm-9 col-md-offset-2 col-sm-offset-3 col-lg-offset-3">
+            @if (ViewBag.Error == true)
+            {
+                <br/>
+                <div class="alert alert-danger" role="alert">
+                    <p>Invalid Data!</p>
+                </div>
+            }
+
+            @using (Html.BeginForm("Add", "Article", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal-override outer", role = "form" }))
+            {
+                <div class="middle">
+                    <div class="inner">
+                        <h2>Add an article</h2>
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Image, new { @class = "col-md-4 control-label-override" })
+                            <div class="col-md-10">
+                                <input type="file" name="file" accept="image/*" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label-override" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Brand, new { @class = "col-md-4 control-label-override" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Price, new { @class = "col-md-4 control-label-override" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Category, new { @class = "control-label-override col-md-4" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Category,
+                    new SelectList(Model.Categories),
+                    new { @class = "btn btn-info col-sm-12", @id = "mainDrop" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none" id="optionalForm">
+                            @Html.LabelFor(model => model.Type, new { @class = "control-label-override col-md-4" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Type,
+                    new SelectList(new List<string>(1)
+                            { "None" }),
+                        new { @class = "btn btn-info col-sm-12", @id = "selectAdditional" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label-override" })
+                            <div class="col-md-10">
+
+                                @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @cols = "40", @rows = "10" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-green" value="Add" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+

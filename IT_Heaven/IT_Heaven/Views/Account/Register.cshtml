@@ -1,0 +1,52 @@
+﻿@model IT_Heaven.Models.RegisterViewModel
+<div class="container-fluid body-content color-lightgray">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="https://s-media-cache-ak0.pinimg.com/564x/fb/f1/1f/fbf11f3810f6253a4ae56a57fc3d6903.jpg" alt="" id="left-add" />
+        </div>
+        <div class="col-md-6">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div class="Form center">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal-override", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label-override" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label-override" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label-override" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-green" value="Register" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="https://s-media-cache-ak0.pinimg.com/564x/fb/f1/1f/fbf11f3810f6253a4ae56a57fc3d6903.jpg" alt="" id="right-add" />
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

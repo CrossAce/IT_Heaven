@@ -1,0 +1,10 @@
+﻿@using IT_Heaven.Models.CategoriesSemiModels;
+<div class="col-md-2 col-sm-3" id="pills-modify">
+    <ul class="nav nav-stacked pills">
+        <li class="categories">Subcategories</li>
+        <li role="presentation">@Html.ActionLink("Rasberry Pi", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Rasberry_PI}, null)</li>
+        <li role="presentation">@Html.ActionLink("Arduino", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Arduino}, null)</li>
+        <li role="presentation">@Html.ActionLink("Components", "SingleCategory", "Categories", new { categoryId = (int)CategoriesInformation.CategoriesEnum.Components }, null)</li>    
+    </ul>
+</div>
+

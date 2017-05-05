@@ -1,0 +1,88 @@
+﻿@using IT_Heaven.Models.Models.ViewModels;
+@using IT_Heaven.Resources.Helpers;
+@model NavigationViewModel
+<div class="container-fluid body-content">
+    <div class="row">
+        @switch (Model.NavigationId)
+        {
+            case 0: { Html.RenderPartial("_SmartPhones_T_A_Navigation"); } break;
+            case 1: { Html.RenderPartial("_Computers_G_A_Navigation"); } break;
+            case 2: { Html.RenderPartial("_TvAudio"); } break;
+            case 3: { Html.RenderPartial("_MicrocontrollersNavigation"); } break;
+            case 4: { Html.RenderPartial("_SoftwareNavigation"); } break;
+        }
+        <div class="col-md-10 col-sm-9 col-md-offset-2 col-sm-offset-3">
+            <br />
+         
+
+            @if (Model.DummyOne != null && Model.DummyOne.Count() != 0)
+            {
+                <div class="row">
+                    <div class="col-md-10 col-sm-9 col-md-offset-1">
+                        <h4>Newly-added articles in @Model.DummyOneCategory</h4>
+                        <div class="scroll-container">
+
+                            @foreach (var item in Model.DummyOne)
+                            {
+                                @Html.ArticlePanel(item)
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.DummyTwo != null && Model.DummyTwo.Count() != 0)
+            {
+                <div class="row">
+                    <div class="col-md-10 col-sm-9 col-md-offset-1">
+                        <h4>Newly-added articles in @Model.DummyTwoCategory</h4>
+                        <div class="scroll-container">
+
+                            @foreach (var item in Model.DummyTwo)
+                            {
+                                @Html.ArticlePanel(item)
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.DummyThree != null && Model.DummyThree.Count() != 0)
+            {
+                <div class="row">
+                    <div class="col-md-10 col-sm-9 col-md-offset-1">
+                        <h4>Newly-added articles in @Model.DummyThreeCategory</h4>
+                        <div class="scroll-container">
+
+                            @foreach (var item in Model.DummyThree)
+                            {
+                                @Html.ArticlePanel(item)
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.DummyFour != null && Model.DummyFour.Count() != 0)
+            {
+                <div class="row">
+                    <div class="col-md-10 col-sm-9 col-md-offset-1">
+                        <h4>Newly-added articles in @Model.DummyFourCategory</h4>
+                        <div class="scroll-container">
+
+                            @foreach (var item in Model.DummyFour)
+                            {
+                                @Html.ArticlePanel(item)
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+
+    </div>
+
+</div>

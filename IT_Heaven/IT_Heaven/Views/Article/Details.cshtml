@@ -1,0 +1,57 @@
+﻿@using IT_Heaven.Models.Models.ViewModels;
+@using IT_Heaven.Resources.Helpers;
+@model ArticleViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container body-content">
+    <div id="deleteOverlay" class="overlay ">
+        <div class="overlay-content ">
+            <h3 style="color:white">Are you sure you want to delete this article?</h3>
+            @Html.ActionLink("Yes","Delete","Article",new { id = Model.Id},new { @class="btn btn-green"})
+            <a class="btn btn-green" href="javascript:void(0)" onclick="closeNav()">No</a>
+        </div>
+
+    </div>
+    <p></p>
+    <h2>@Model.Name</h2>
+    <p>Product ID: @Model.Id</p>
+    <p>Uploaded on: @Model.UploadDate.Date.ToString("dd-MM-yy")</p>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <img src="@Model.Image" alt="" id="imgPreview" />
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <p>Product type: @(Model.Type != null ? Model.Type : "None") </p>
+        </div>
+        <div class="col-md-5 col-sm-12">
+            <p><strong>@StaticResources.CalculateDiscount(Model.Discount,Model.Price)</strong></p>
+            <br />
+            <a class="btn btn-green" href="" id="AddToCart">
+                Add to Cart
+            </a>
+           
+            @if (ViewBag.AccountType == "Admin" || ViewBag.AccountType == "Helper")
+            {
+                 @Html.ActionLink("Edit", "Edit", "Article", new { id = Model.Id},new { @class = "btn btn-green" });
+                <a class="btn btn-green" id="DeleteBtn" onclick="openNav()">
+                    Delete
+                </a>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2>Product description:</h2>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+</div>
